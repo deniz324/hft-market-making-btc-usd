@@ -23,11 +23,19 @@ The project evolved from exploratory market-making notebooks into a live, asynch
 - **Persistent telemetry** — quote ticks are written to Parquet for subsequent analysis.
 - **Read-only dashboard** — monitors PnL, inventory, fills, spread, volatility, quote edge and historical runs without touching the trading process.
 
+## Historical dashboard result
+
+![Historical dashboard result](results/dashboard_19h_session.png)
+
+**Longest single continuous dry-run shown above:** 19h 21m, **1,223,368 quote ticks**, and **5,769 simulated fills** with capture ratio 1. The session illustrates both spread capture and inventory/adverse-selection risk: paper PnL reached above $200 during the run before ending at **-$31.76**. This is a historical paper-execution session from the project data, not realized mainnet trading performance.
+
+The research paper's highlighted **21.1-hour case study** aggregates adjacent experimental segments; the dashboard groups process runs separately to avoid silently merging independent sessions.
+
 ## Empirical results
 
-The accompanying research evaluates the system on **3.5M+ live quote ticks** collected over a ten-day test corpus. A highlighted **21.1-hour continuous session** contains roughly **1.25M quote ticks and 5,883 simulated fills**.
+The accompanying research evaluates the system on **3.5M+ live quote ticks** collected over a ten-day test corpus. A highlighted **21.1-hour case study** contains roughly **1.25M quote ticks and 5,883 simulated fills**.
 
-In that session, the strategy quoted an average spread of approximately **$0.74**, versus roughly **$1.01** for Extended's native top of book. These are **paper-execution results**, not claims of realized mainnet trading profit. The simulator explicitly incorporates an 8.5 ms network-latency assumption, queue/capture-ratio sensitivity and maker/taker fee treatment.
+The reported spread result is approximately **$0.74** quoted by the strategy versus roughly **$1.01** for Extended's native top of book in the highlighted paper case study. These are **paper-execution results**, not claims of realized mainnet trading profit. The simulator explicitly incorporates an 8.5 ms network-latency assumption, queue/capture-ratio sensitivity and maker/taker fee treatment.
 
 The paper also discusses failure modes and model revisions rather than presenting only favourable runs, including volatility-estimation failures, structurally uncompetitive cross-venue quoting, inventory drawdowns and the limitations of fitting a smooth arrival-intensity model to touch-dominated fills.
 
@@ -46,6 +54,9 @@ hft-market-making-btc-usd/
 ├── notebooks/
 │   ├── 01_market_making_research.ipynb
 │   └── 02_hft_latency_analysis.ipynb
+├── results/
+│   ├── dashboard_19h_session.png
+│   └── README.md
 ├── paper/
 │   └── hft_market_making.tex
 └── high_frequency_market_making_for_btc_usd_perpetuals.pdf
