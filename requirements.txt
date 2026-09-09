@@ -1,0 +1,9 @@
+# websockets pinned <14: x10 SDK 2.4.0's StreamConnection still calls
+# websockets.connect(..., extra_headers=...), a kwarg removed in websockets 14.
+x10-python-trading-starknet==2.4.0
+websockets==13.1
+numpy==2.5.1
+certifi==2026.6.17
+python-dotenv==1.2.2
+pandas==3.0.3
+pyarrow==25.0.0
