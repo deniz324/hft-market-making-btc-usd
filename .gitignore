@@ -11,13 +11,13 @@ env/
 .env.*
 !.env.example
 
-# Runtime data and learned state
+# Runtime / research state
 live_data/
 bandit_state.json
 coef_bandit_state.json
 *.tmp
 
-# Notebook / editor caches
+# Notebook/editor caches
 .ipynb_checkpoints/
 .vscode/
 .idea/
